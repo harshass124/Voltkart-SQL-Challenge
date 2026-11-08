@@ -1,10 +1,27 @@
--- 9. The catalogue source now emits a change feed (
--- operation codes. Apply it to 
--- cdc_product_changes) with
--- dim_product in a single MERGE that honours the codes: I inserts 
--- a new product, U updates an existing one, D deletes it. Acceptance criteria: one MERGE 
--- handling all three operations; include a verification query showing inserted, updated, and 
--- deleted products.
+/*
+QUESTION 9: CDC PRODUCT CHANGES USING MERGE
+
+Objective:
+Apply product changes from the CDC change feed (cdc_product_changes) to dim_product using a single MERGE statement.
+
+Approach:
+1. Used dim_product as the target table.
+2. Used cdc_product_changes as the source table.
+3. Matched records using product_id.
+4. Applied UPDATE operations for records marked with operation 'U'.
+5. Applied DELETE operations for records marked with operation 'D'.
+6. Inserted new products for records marked with operation 'I' that were not present in the target table.
+7. Used the MERGE OUTPUT clause to capture affected product records and identify the action performed.
+8. Verified the INSERT, UPDATE and DELETE actions.
+
+SQL Concepts:
+- MERGE Statement
+- Change Data Capture (CDC)
+- Conditional UPDATE and DELETE
+- INSERT
+- OUTPUT Clause
+- COALESCE()
+*/
 
 
 
