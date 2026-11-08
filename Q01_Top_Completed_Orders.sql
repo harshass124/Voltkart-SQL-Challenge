@@ -18,6 +18,7 @@ SQL Concepts:
 - TOP
 */
 
+
 SELECT TOP 20
        f.order_id,
        f.order_date,
