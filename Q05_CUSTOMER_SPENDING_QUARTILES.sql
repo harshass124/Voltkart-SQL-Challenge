@@ -1,8 +1,24 @@
--- 5. The CRM team wants to size up the customer base by value. Split customers into
--- four quartiles by lifetime completed spend, and for each quartile report how many 
--- customers fall in it and their average spend. Required output: 
--- customer_count, 
--- avg_lifetime_spend
+/*
+QUESTION 5: CUSTOMER SPENDING QUARTILES
+
+Objective:
+Segment customers into four quartiles based on their lifetime completed-order spending.
+
+Approach:
+1. Joined dim_customer with fact_orders.
+2. Calculated each customer's lifetime completed-order spending using SUM(order_total).
+3. Used NTILE(4) to divide customers into four approximately equal-sized groups based on spending.
+4. Grouped customers by quartile.
+5. Calculated the customer count and average lifetime spending for each quartile.
+
+SQL Concepts:
+- JOIN
+- GROUP BY
+- SUM()
+- NTILE()
+- Window Functions
+- Common Table Expressions (CTEs)
+*/
 
 WITH Life_time_spend AS
 (
