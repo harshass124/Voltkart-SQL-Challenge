@@ -1,10 +1,24 @@
--- 6. The catalogue team needs to see everything under a part of the tree. Using a
--- recursive query, list all categories in the subtree rooted at 'Computers' at any depth, with 
--- how deep each sits and a readable path from Computers. Required output: 
--- category_id, 
--- category_name, 
--- depth_level, 
--- category_path.
+/*
+QUESTION 6: RECURSIVE CATEGORY HIERARCHY
+
+Objective:
+Retrieve all categories and subcategories under the Computers category, including their depth level and hierarchical path.
+
+Approach:
+1. Used a recursive Common Table Expression (CTE).
+2. Defined the anchor member to identify the Computers category.
+3. Used the recursive member to retrieve child categories through the parent_category_id relationship.
+4. Incremented the depth level at every recursion.
+5. Built a readable category path using string concatenation.
+6. Retrieved the complete category hierarchy under Computers.
+
+SQL Concepts:
+- Recursive CTE
+- UNION ALL
+- Self-Referencing JOIN
+- String Concatenation
+- DATED/Hierarchy Tracking
+*/
 
 WITH OrgCTE AS
 (
