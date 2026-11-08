@@ -17,7 +17,7 @@ The objective of this project was to solve practical SQL problems involving data
 | Topic | Concepts |
 |---|---|
 | Data Retrieval | SELECT, WHERE, ORDER BY, TOP |
-| Joins | INNER JOIN, LEFT JOIN |
+| Joins | INNER JOIN, LEFT JOIN, ANTI JOIN |
 | Subqueries | Correlated subqueries, NOT EXISTS |
 | Aggregations | SUM, COUNT, AVG, GROUP BY |
 | Window Functions | ROW_NUMBER, DENSE_RANK, NTILE, LAG |
