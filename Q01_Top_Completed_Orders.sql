@@ -1,7 +1,22 @@
--- Warmup-Question1: Return the top 20 completed orders by value,
--- including the customer name and the sales rep name.
--- Required output: order_id, order_date, customer_name,
---                  sales_rep_name, order_total
+/*
+QUESTION 1: TOP 20 COMPLETED ORDERS
+
+Objective:
+Retrieve the top 20 highest-value completed orders along with customer and sales representative details.
+
+Approach:
+1. Used fact_orders as the primary table.
+2. Joined dim_customer to retrieve customer names.
+3. Joined dim_employee to retrieve sales representative names.
+4. Filtered records to include only completed orders.
+5. Used ORDER BY in descending order of order_total and TOP 20 to identify the highest-value orders.
+
+SQL Concepts:
+- INNER/LEFT JOIN
+- WHERE clause
+- ORDER BY
+- TOP
+*/
 
 SELECT TOP 20
        f.order_id,
