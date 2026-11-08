@@ -1,3 +1,30 @@
+/*
+QUESTION 11: CUSTOMER LOYALTY STREAKS
+
+Objective:
+Identify the longest consecutive run of calendar months in which each customer placed at least one completed order.
+
+Approach:
+1. Identified distinct customer and month combinations from completed orders.
+2. Used DATEFROMPARTS() to normalize order dates to the first day of each month.
+3. Applied ROW_NUMBER() to assign sequential numbers to each customer's active months.
+4. Used DATEDIFF() and ROW_NUMBER() together to identify consecutive month groups using the Gaps and Islands technique.
+5. Grouped consecutive months and counted the number of months in each streak.
+6. Used MAX() to identify the longest streak for each customer.
+7. Joined with dim_customer to retrieve customer names.
+
+SQL Concepts:
+- DISTINCT
+- DATEFROMPARTS()
+- ROW_NUMBER()
+- DATEDIFF()
+- Window Functions
+- Gaps and Islands Technique
+- GROUP BY
+- MAX()
+- Common Table Expressions (CTEs)
+*/
+
 WITH CustomerMonths AS
 (
     SELECT DISTINCT
