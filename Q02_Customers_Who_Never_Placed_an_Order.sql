@@ -1,8 +1,19 @@
---Marketing wants to re-engage people who registered but never bought. List the
---customers who have never placed an order. Required output: 
---customer_id, 
---customer_name, 
---signup_date.
+/*
+QUESTION 2: CUSTOMERS WHO NEVER PLACED AN ORDER
+
+Objective:
+Identify customers who have never placed an order.
+
+Approach:
+1. Used dim_customer as the main table.
+2. Used a correlated NOT EXISTS subquery to check whether an order exists for each customer.
+3. Returned only customers for whom no matching record was found in fact_orders.
+4. Included customer ID, customer name and signup date in the output.
+
+SQL Concepts:
+- Correlated Subquery
+- NOT EXISTS
+*/
 
 SELECT c.customer_id,c.customer_name, c.signup_date 
 FROM dim_customer c 
