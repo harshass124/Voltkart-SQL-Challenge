@@ -1,13 +1,26 @@
--- 4. Finance wants the revenue trend with momentum. Produce
--- monthly completed revenue with a cumulative running total and the month-over-month % 
--- change. Required output: 
--- order_month (YYYY-MM), 
--- monthly_revenue, 
--- running_total, 
--- mom_pct_chang
--- First CTE: Calculate monthly revenue.
--- Second CTE: Calculate running total and previous month's revenue.
--- Final SELECT: Calculate MoM percentage.
+/*
+QUESTION 4: MONTHLY REVENUE ANALYSIS
+
+Objective:
+Analyse monthly completed-order revenue, calculate cumulative revenue and measure month-over-month revenue growth.
+
+Approach:
+1. Joined fact_orders with fact_order_items.
+2. Filtered only completed orders.
+3. Grouped transactions by month and calculated monthly revenue using SUM(line_amount).
+4. Used SUM() OVER() to calculate the running total of revenue.
+5. Used LAG() to retrieve the previous month's revenue.
+6. Calculated the month-over-month percentage change using the current and previous month's revenue.
+
+SQL Concepts:
+- Date Functions
+- GROUP BY
+- SUM()
+- Window Functions
+- LAG()
+- NULLIF()
+- Common Table Expressions (CTEs)
+*/
   
 WITH Monthly_Revenue AS
 (
