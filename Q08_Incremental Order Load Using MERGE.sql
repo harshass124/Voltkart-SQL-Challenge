@@ -1,3 +1,27 @@
+/*
+QUESTION 8: INCREMENTAL ORDER LOAD USING MERGE
+
+Objective:
+Perform an incremental load from stg_orders_incr into fact_orders by updating existing orders and inserting new orders.
+
+Approach:
+1. Used fact_orders as the target table.
+2. Used stg_orders_incr as the source table.
+3. Matched records using order_id.
+4. Updated the order_status and order_total for existing orders.
+5. Inserted new orders that were not present in the target table.
+6. Used MERGE OUTPUT to capture affected records and identify INSERT and UPDATE actions.
+7. Verified the load by comparing the row counts before and after execution.
+
+SQL Concepts:
+- MERGE Statement
+- INSERT
+- UPDATE
+- OUTPUT Clause
+- Table Variables
+- Data Verification
+*/
+
 -- Step 1: Capture row count BEFORE MERGE
 DECLARE @RowsBefore BIGINT;
 
